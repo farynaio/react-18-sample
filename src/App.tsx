@@ -1,24 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { ChangeEvent, useEffect, useState } from 'react';
+import { fetchCoins } from './ajax/coinsApi';
 import './App.css';
+import CoinTable from './components/CoinTable/CoinTable';
+import CurrencySelector from './components/CurrencySelector/CurrencySelector';
+import { COINS_TO_FETCH, CURRENCIES } from './constants';
+import Coin from './model/Coin';
 
 function App() {
+  const [currency, setCurrency] = useState("USD");
+  const [coins, setCoins] = useState<Array<Coin>>([]);
+
+  useEffect(() => {
+    fetchCoins(currency, COINS_TO_FETCH).then(res => {
+      setCoins(res);
+    })
+  }, [currency]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <CurrencySelector currencies={CURRENCIES} current={currency} onChange={(e: ChangeEvent<HTMLSelectElement>): void => setCurrency(e.target.value)} />
+      <CoinTable currency={currency} coins={coins} />
     </div>
   );
 }
