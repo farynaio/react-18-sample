@@ -2,8 +2,6 @@ import Coin from "../model/Coin";
 
 const CRYPTO_COMPARE_API_URL = "https://min-api.cryptocompare.com/data/";
 
-// pricemultifull?fsyms=BTC,XRP,ETH,USDT,BNB,BCH,LINK,DOT,LTC&tsyms=USD
-
 export const fetchCoins = async (currency: string, cryptoCoins: Array<string>): Promise<Array<Coin>> => {
     const coinsParam = cryptoCoins.join(",");
     const url = `${CRYPTO_COMPARE_API_URL}pricemultifull?fsyms=${coinsParam}&tsyms=${currency}`;
