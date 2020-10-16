@@ -16,25 +16,25 @@ type ActionType =
     | { type: "sortByPriceInc" };
 
 const initialState = {
-    sortBySymbolAsc: false,
-    sortByCurrentPriceAsc: false,
-    sortByOpeningPriceAsc: false,
-    sortByPriceIncAsc: false,
+    sortBySymbolDescending: false,
+    sortByCurrentPriceDescending: false,
+    sortByOpeningPriceDescending: false,
+    sortByPriceIncDescending: false,
     coins: [] as Coin[],
     activeSort: ""
 };
 
-const sortNumbers = (coins: Coin[], sortKey: string, ascending: boolean): Coin[] => {
-    if (ascending) {
-        coins.sort((a: any, b: any) => a[sortKey] - b[sortKey]);
-    } else {
+const sortNumbers = (coins: Coin[], sortKey: string, descending: boolean): Coin[] => {
+    if (descending) {
         coins.sort((a: any, b: any) => (a[sortKey] - b[sortKey]) * -1);
+    } else {
+        coins.sort((a: any, b: any) => a[sortKey] - b[sortKey]);
     }
     return coins;
 }
 
-const sortStrings = (coins: Coin[], sortKey: string, ascending: boolean): Coin[] => {
-    if (ascending) {
+const sortStrings = (coins: Coin[], sortKey: string, descending: boolean): Coin[] => {
+    if (descending) {
         coins.sort((a: any, b: any) => a[sortKey].localeCompare(b[sortKey]) * -1);
     } else {
         coins.sort((a: any, b: any) => a[sortKey].localeCompare(b[sortKey]));
@@ -47,13 +47,13 @@ function reducer(state: typeof initialState, action: ActionType) {
         case "updateCoins":
             return { ...initialState, coins: action.payload };
         case "sortBySymbol":
-            return { ...initialState, coins: sortStrings([...state.coins], "symbol", !state.sortBySymbolAsc), sortBySymbolAsc: !state.sortBySymbolAsc, activeSort: "symbol" };
+            return { ...initialState, coins: sortStrings([...state.coins], "symbol", !state.sortBySymbolDescending), sortBySymbolDescending: !state.sortBySymbolDescending, activeSort: "symbol" };
         case "sortByCurrentPrice":
-            return { ...initialState, coins: sortNumbers([...state.coins], "currentPrice", !state.sortByCurrentPriceAsc), sortByCurrentPriceAsc: !state.sortByCurrentPriceAsc, activeSort: "currentPrice" };
+            return { ...initialState, coins: sortNumbers([...state.coins], "currentPrice", !state.sortByCurrentPriceDescending), sortByCurrentPriceDescending: !state.sortByCurrentPriceDescending, activeSort: "currentPrice" };
         case "sortByOpeningPrice":
-            return { ...initialState, coins: sortNumbers([...state.coins], "openingPrice", !state.sortByOpeningPriceAsc), sortByOpeningPriceAsc: !state.sortByOpeningPriceAsc, activeSort: "openingPrice" };
+            return { ...initialState, coins: sortNumbers([...state.coins], "openingPrice", !state.sortByOpeningPriceDescending), sortByOpeningPriceDescending: !state.sortByOpeningPriceDescending, activeSort: "openingPrice" };
         case "sortByPriceInc":
-            return { ...initialState, coins: sortNumbers([...state.coins], "priceInc", !state.sortByPriceIncAsc), sortByPriceIncAsc: !state.sortByPriceIncAsc, activeSort: "priceInc" };
+            return { ...initialState, coins: sortNumbers([...state.coins], "priceInc", !state.sortByPriceIncDescending), sortByPriceIncDescending: !state.sortByPriceIncDescending, activeSort: "priceInc" };
         default:
             throw new Error();
     }
@@ -61,7 +61,7 @@ function reducer(state: typeof initialState, action: ActionType) {
 
 const CoinTable = ({ currency, coins }: CoinTableProps) => {
     const [state, dispatch] = useReducer(reducer, initialState);
-    const { sortBySymbolAsc, sortByCurrentPriceAsc, sortByOpeningPriceAsc, sortByPriceIncAsc, activeSort } = state;
+    const { sortBySymbolDescending, sortByCurrentPriceDescending, sortByOpeningPriceDescending, sortByPriceIncDescending, activeSort } = state;
 
     useEffect(() => {
         dispatch({ type: "updateCoins", payload: coins });
@@ -71,10 +71,10 @@ const CoinTable = ({ currency, coins }: CoinTableProps) => {
         <table className="coin-table">
             <thead>
                 <tr>
-                    <TableHeaderSortable caption="Coin Name" isAscending={sortBySymbolAsc} isActive={activeSort === "symbol"} onClick={() => dispatch({ type: "sortBySymbol" })} />
-                    <TableHeaderSortable caption={`Current Price (${currency})`} isAscending={sortByCurrentPriceAsc} isActive={activeSort === "currentPrice"} onClick={() => dispatch({ type: "sortByCurrentPrice" })} />
-                    <TableHeaderSortable caption={`Opening Price (${currency})`} isAscending={sortByOpeningPriceAsc} isActive={activeSort === "openingPrice"} onClick={() => dispatch({ type: "sortByOpeningPrice" })} />
-                    <TableHeaderSortable caption="Price Increase" isAscending={sortByPriceIncAsc} isActive={activeSort === "priceInc"} onClick={() => dispatch({ type: "sortByPriceInc" })} />
+                    <TableHeaderSortable caption="Coin Name" isDescending={sortBySymbolDescending} isActive={activeSort === "symbol"} onClick={() => dispatch({ type: "sortBySymbol" })} />
+                    <TableHeaderSortable caption={`Current Price (${currency})`} isDescending={sortByCurrentPriceDescending} isActive={activeSort === "currentPrice"} onClick={() => dispatch({ type: "sortByCurrentPrice" })} />
+                    <TableHeaderSortable caption={`Opening Price (${currency})`} isDescending={sortByOpeningPriceDescending} isActive={activeSort === "openingPrice"} onClick={() => dispatch({ type: "sortByOpeningPrice" })} />
+                    <TableHeaderSortable caption="Price Increase" isDescending={sortByPriceIncDescending} isActive={activeSort === "priceInc"} onClick={() => dispatch({ type: "sortByPriceInc" })} />
                 </tr>
             </thead>
             <tbody>

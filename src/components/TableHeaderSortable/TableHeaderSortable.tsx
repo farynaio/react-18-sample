@@ -7,14 +7,14 @@ library.add(faArrowDown, faArrowUp);
 
 interface TableHeaderSortableProps {
     caption: string;
-    isAscending: boolean;
+    isDescending: boolean;
     isActive: boolean;
     onClick: (e: React.MouseEvent<HTMLElement>) => void
 };
 
-const TableHeaderSortable = ({ caption, isAscending = false, isActive = false, onClick }: TableHeaderSortableProps) => (
-    <th onClick={onClick}>
-        {caption} {isActive ? (<FontAwesomeIcon icon={isAscending ? "arrow-up" : "arrow-down"} />) : null}
+const TableHeaderSortable = ({ caption, isDescending = false, isActive = false, onClick }: TableHeaderSortableProps) => (
+    <th className="table-header-sortable" onClick={onClick}>
+        {caption} {isActive ? (<FontAwesomeIcon icon={isDescending ? "arrow-down" : "arrow-up"} />) : null}
     </th>
 );
 
