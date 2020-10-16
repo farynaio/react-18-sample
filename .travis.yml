@@ -15,4 +15,3 @@ deploy:
   on:
     branch: master
   local_dir: build
-  repo: adamfaryna/react-18-sample
