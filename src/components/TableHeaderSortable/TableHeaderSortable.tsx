@@ -12,7 +12,7 @@ interface TableHeaderSortableProps {
     onClick: (e: React.MouseEvent<HTMLElement>) => void
 };
 
-const TableHeaderSortable = ({ caption, isAscending, isActive, onClick }: TableHeaderSortableProps) => (
+const TableHeaderSortable = ({ caption, isAscending = false, isActive = false, onClick }: TableHeaderSortableProps) => (
     <th onClick={onClick}>
         {caption} {isActive ? (<FontAwesomeIcon icon={isAscending ? "arrow-up" : "arrow-down"} />) : null}
     </th>
