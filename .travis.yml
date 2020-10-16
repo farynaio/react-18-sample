@@ -1,9 +1,14 @@
 language: node_js
 node_js:
-  - 8
+- 8
 cache:
   directories:
     - node_modules
 script:
   - npm run build
   - npm test
+deploy:
+  provider: heroku
+  app: react-18-sample-1
+  api_key:
+    secure: QllqxPk27P5nxEMRw/ghArbKeTQ3gi7iU0TdWD4rWttpNb9tetizccsJ+gMHdjXn8IQRW+dRNHOcTAWHR92R2GJPI0ii62TYDDyz4HxaYXdZ6TgcUttveOmg60l3EQy+/BcML5clbjAI5r7hFLTpkEZ7pZ4GOM9+U7UWa9WoRLViNbw6AQqD3YpsRhCPE0mep3QgMPc1HKiSGTkqI56MT8vjn/a2z9rtB1MKPpQxrrDL0hl+d50azf7s9pwcuIv2xwhqmJ1nR7OEpEKXj1th0OXx/UcCyj/olkIweJpW+AiLg4JV+8uyhA+CBtYYGCVwevWulrGspZEpp1HMN+NrxMJp1qsrfjk/JyI2LlBW7yYkKmOVIUrkcxucBamLRSvDu44PpbcNF+zDJ7r0ZhfNc0TKiaNOVVAibwxYze6qPLlDNsP5pzT206W+qImLtGQHdxL9Bk2RscGWM9gj31p8qcBJkzSI6NQcxr5Gr+AJpXhLRz8qbOr6w2Q80lMpsqsHQ25/Gpj4QkTYT5s/qb6nrkUwymL2/Pry7yg9GaxMh36Rg9jK+5mh/7l0BDYvjKCZUjAVrseprEvX3AT158tBf1bJ+y6V6WR4+WkoDmb+tILzdCm8FMcT0yQvHeVYHamktK0cWwDP3sHngDgzq9D9j8MVNhs2NRbFIgB0VHmQV7w=
