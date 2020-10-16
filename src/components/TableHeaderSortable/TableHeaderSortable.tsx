@@ -14,7 +14,7 @@ interface TableHeaderSortableProps {
 
 const TableHeaderSortable = ({ caption, isDescending = false, isActive = false, onClick }: TableHeaderSortableProps) => (
     <th className="table-header-sortable" onClick={onClick}>
-        {caption} {isActive ? (<FontAwesomeIcon icon={isDescending ? "arrow-down" : "arrow-up"} />) : null}
+        {caption} {isActive && <FontAwesomeIcon icon={isDescending ? "arrow-down" : "arrow-up"} />}
     </th>
 );
 
