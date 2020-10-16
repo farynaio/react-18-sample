@@ -26,7 +26,7 @@ const initialState = {
 
 const sortNumbers = (coins: Coin[], sortKey: string, ascending: boolean): Coin[] => {
     if (ascending) {
-        coins.sort((a: any, b: any) => (a[sortKey] - b[sortKey]));
+        coins.sort((a: any, b: any) => a[sortKey] - b[sortKey]);
     } else {
         coins.sort((a: any, b: any) => (a[sortKey] - b[sortKey]) * -1);
     }

@@ -1,4 +1,4 @@
-import { formatPrice } from "../utils/utils";
+import { formatPrice } from "../utils/Utils";
 
 class Coin {
     constructor(public symbol: string, public currentPrice: number, public openingPrice: number) { }

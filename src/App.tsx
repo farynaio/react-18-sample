@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
-import { fetchCoins } from './ajax/coinsApi';
+import { fetchCoins } from './ajax/CoinsApi';
 import './App.css';
 import CoinTable from './components/CoinTable/CoinTable';
 import CurrencySelector from './components/CurrencySelector/CurrencySelector';
