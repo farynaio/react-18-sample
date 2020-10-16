@@ -1,14 +1,14 @@
 language: node_js
-node_js:
-- 8
+node_js: 8
 cache:
   directories:
-    - node_modules
+  - node_modules
 script:
-  - npm run build
-  - npm test
+- npm run build
+- npm test
 deploy:
   provider: heroku
   app: react-18-sample-1
   api_key:
-    secure: QllqxPk27P5nxEMRw/ghArbKeTQ3gi7iU0TdWD4rWttpNb9tetizccsJ+gMHdjXn8IQRW+dRNHOcTAWHR92R2GJPI0ii62TYDDyz4HxaYXdZ6TgcUttveOmg60l3EQy+/BcML5clbjAI5r7hFLTpkEZ7pZ4GOM9+U7UWa9WoRLViNbw6AQqD3YpsRhCPE0mep3QgMPc1HKiSGTkqI56MT8vjn/a2z9rtB1MKPpQxrrDL0hl+d50azf7s9pwcuIv2xwhqmJ1nR7OEpEKXj1th0OXx/UcCyj/olkIweJpW+AiLg4JV+8uyhA+CBtYYGCVwevWulrGspZEpp1HMN+NrxMJp1qsrfjk/JyI2LlBW7yYkKmOVIUrkcxucBamLRSvDu44PpbcNF+zDJ7r0ZhfNc0TKiaNOVVAibwxYze6qPLlDNsP5pzT206W+qImLtGQHdxL9Bk2RscGWM9gj31p8qcBJkzSI6NQcxr5Gr+AJpXhLRz8qbOr6w2Q80lMpsqsHQ25/Gpj4QkTYT5s/qb6nrkUwymL2/Pry7yg9GaxMh36Rg9jK+5mh/7l0BDYvjKCZUjAVrseprEvX3AT158tBf1bJ+y6V6WR4+WkoDmb+tILzdCm8FMcT0yQvHeVYHamktK0cWwDP3sHngDgzq9D9j8MVNhs2NRbFIgB0VHmQV7w=
+    secure: jtvyam5FXvrkYMPUTUpXnXn0lNhwRneYWmmyiXqwdTKOZ5ijQHmaVzK/Qe/03C+r2b7PFrfNpCtrY9CY9I6IpCS/Wi0scLnw9kY85mSl168IjAn4Evd5xO+ICH66UnAsUEB0XalEc8qntIsH7Q506VAWmb/kOuOyk2kwC+85Y5V50hvVhzPr7PQySeAciscvNJxi2FcRzdkmxEZPbtkoWZ1RHADa35RKTzEwkShHI8iTmWMtEU0uK4YXucXy02mPYpmRk9oKQ3EG/f9OCAw2wsEJ8JK0THnZkPT22XNLtGBkuQCQUZyCY/bq0tteCH2ydVC8pHixFHN4a+A0bJV8flOWYs+Oxny5L395aSJKUcc2/XoE6qd8jKAJZOcVUqAMw7ohAx2nkr6+RrVmrCEP7XMrmLspZRbOJvNZO8t4mtzAJ8O0D4wKzUNEcsGdx9Gju9srt32ofyQLQgcu2jcm+mp9eTVe7qq32uwJRRvUrMwSQecEFInW4WcJhkOHcQH7EcAjMG/u8gaj9yLODWubl7VvVQKb0N10N30Qk64Le8sG9TLR3r7KgLFrLcCRuLYW0UgGG+1+GwJIxwlEK72hI7hLHrdKNxKznexWoTnyXbPascVANcoH1l+63WMBEo5uQx0HDF1Svcax5F/oygsXMHKbVET7rBTn3xXkzNKkt+s=
+  skip_cleanup: true
