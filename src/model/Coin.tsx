@@ -4,7 +4,7 @@ class Coin {
     constructor(public symbol: string, public currentPrice: number, public openingPrice: number) { }
 
     get priceInc() {
-        const priceInc = this.openingPrice - this.currentPrice;
+        const priceInc = this.currentPrice - this.openingPrice;
         return (priceInc / this.openingPrice) * 100;
     }
 
