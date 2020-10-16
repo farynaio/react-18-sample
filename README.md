@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Simple project demonstrating usage of React 18 with create-react-app.
+Simple project demonstrating usage of React 16.8 with create-react-app.
 
 The data is fetched from https://cryptocompare.com service.
 
