@@ -1,10 +1,14 @@
+[![Build Status](https://travis-ci.com/adamfaryna/react-18-sample.svg?branch=master)](https://travis-ci.com/adamfaryna/react-18-sample)
+
 # React-18 Sample project 1 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 Simple project demonstrating usage of React 16.8 with create-react-app.
 
-The data is fetched from https://cryptocompare.com service.
+The data is fetched from [cryptocompare.com](https://cryptocompare.com) API.
+
+[Demo](https://adamfaryna.github.io/react-18-sample/)
 
 ## Available Scripts
 
