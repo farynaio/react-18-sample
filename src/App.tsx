@@ -3,7 +3,7 @@ import { fetchCoins } from './ajax/CoinsApi';
 import './App.css';
 import CoinTable from './components/CoinTable/CoinTable';
 import CurrencySelector from './components/CurrencySelector/CurrencySelector';
-import { COINS_TO_FETCH, CURRENCIES } from './constants';
+import { COINS_TO_FETCH, CURRENCIES } from './config/Constants';
 import Coin from './model/Coin';
 
 function App() {
