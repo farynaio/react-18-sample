@@ -4,8 +4,8 @@ cache:
   directories:
   - node_modules
 script:
-- npm run build
-- npm test
+- CI=true npm test
+- CI=true npm run build
 deploy:
   provider: pages
   skip_cleanup: true
